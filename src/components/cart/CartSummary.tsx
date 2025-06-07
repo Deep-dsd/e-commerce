@@ -6,7 +6,7 @@ const CartSummary = () => {
 
   return (
     <div className="sm:mt-8 mt-4 bg-primary rounded-lg shadow-md p-6 border border-text/20">
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex xs:flex-row flex-col justify-between items-center mb-4">
         <span className="text-lg font-medium text-text">
           Total Items: {getTotalItems()}
         </span>
@@ -14,7 +14,7 @@ const CartSummary = () => {
           Total: ${getTotalAmount().toFixed(2)}
         </span>
       </div>
-      <div className="flex gap-4">
+      <div className="flex xs:flex-row flex-col gap-4">
         <button className="flex-1 bg-button-one hover:bg-button-one/90 text-white py-3 px-6 rounded-md font-medium transition-colors cursor-pointer tracking-wide">
           Proceed to Checkout
         </button>
