@@ -2,7 +2,7 @@
 
 A modern e-commerce product listing application built with Next.js 14, TypeScript, and Tailwind CSS. Features product browsing, shopping cart functionality, and persistent cart storage.
 
-## 🚀 Features
+## Features
 
 - **Product Listing**: Browse products with pagination
 - **Shopping Cart**: Add, remove, and update product quantities
@@ -11,7 +11,7 @@ A modern e-commerce product listing application built with Next.js 14, TypeScrip
 - **Responsive Design**: Works seamlessly on desktop and mobile
 - **TypeScript**: Full type safety throughout the application
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Next.js 14** (App Router)
 - **TypeScript**
@@ -19,7 +19,7 @@ A modern e-commerce product listing application built with Next.js 14, TypeScrip
 - **React Context API**
 - **Local Storage** for cart persistence
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Node.js 18+ 
@@ -47,7 +47,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 /app
@@ -73,7 +73,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ```
 
-## 🎯 Key Features Explained
+## Key Features Explained
 
 ### Product Management
 - Fetches products from DummyJSON API
@@ -93,21 +93,21 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - Separate contexts for products and cart
 - TypeScript interfaces for type safety
 
-## 🌐 API Integration
+## API Integration
 
 Uses [DummyJSON Products API](https://dummyjson.com/products) for product data with:
 - Pagination support
 - Product details (title, description, price, stock, images)
 - Error handling and loading states
 
-## 📱 Responsive Design
+## Responsive Design
 
 - Mobile-first approach with Tailwind CSS
 - Responsive grid layouts
 - Touch-friendly interface elements
 - Optimized for various screen sizes
 
-## 🔍 Browser Compatibility
+## Browser Compatibility
 
 - Modern browsers (Chrome, Firefox, Safari, Edge)
 - Requires JavaScript enabled
