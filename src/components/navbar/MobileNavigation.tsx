@@ -9,9 +9,10 @@ import { HiMenuAlt3, HiX } from "react-icons/hi"
 interface MobileNavigationProps {
   navItems: NavItems[]
   pathname: string
+  totalCartItems: number
 }
 
-const MobileNavigation: React.FC<MobileNavigationProps> = ({navItems, pathname}) => {
+const MobileNavigation: React.FC<MobileNavigationProps> = ({navItems, pathname, totalCartItems}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
 
@@ -80,11 +81,18 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({navItems, pathname})
 
         <div className='flex items-center gap-8 mt-8 animate-in slide-in-from-bottom duration-500 delay-300'>
           <Link 
-            className={`text-4xl text-accent transition-all duration-300 ease-in-out transform hover:scale-110`}
+            className={`text-4xl text-accent transition-all duration-300 ease-in-out transform hover:scale-110 relative`}
             href="/cart"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <FaCartShopping/>
+            {
+            totalCartItems > 0 && (
+              <span className='inline-block text-primary bg-text absolute text-sm h-5 w-5 rounded-full -top-2 -right-3 text-center'>
+                {totalCartItems}
+              </span>
+            )
+          }
           </Link>
           <Link 
             className={`text-4xl text-text/50 transition-all duration-300 ease-in-out transform hover:scale-110`}

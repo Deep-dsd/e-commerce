@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/navbar/Navbar";
+import Providers from "@/components/providers/Providers";
 
 export const metadata: Metadata = {
   title: "Product Listing App",
@@ -16,9 +16,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`font-poppins antialiased bg-primary`}
+        suppressHydrationWarning={true}
       >
-        <Navbar/>
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

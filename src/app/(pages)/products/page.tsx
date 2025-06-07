@@ -2,7 +2,7 @@
 import Pagination from '@/components/products/Pagination';
 import ProductListCard from '@/components/products/ProductListCard';
 import Loader from '@/components/ui/Loader'
-import { ProductsDataprovider, useProductsContext } from '@/context/useProductsContext'
+import { useProductsContext } from '@/context/useProductsContext'
 import { HiOutlineRefresh } from "react-icons/hi";
 
 const ProductsPage = () => {
@@ -55,10 +55,4 @@ const ProductsPage = () => {
   )
 }
 
-export default function WrappedProductsPage() {
-  return (
-    <ProductsDataprovider>
-      <ProductsPage />
-    </ProductsDataprovider>
-  )
-}
+export default ProductsPage

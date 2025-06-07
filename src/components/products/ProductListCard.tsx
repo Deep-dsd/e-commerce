@@ -1,5 +1,7 @@
+import { useCartContext } from '@/context/useCartContext'
 import { Product } from '@/context/useProductsContext'
 import React from 'react'
+import { FaCartShopping } from 'react-icons/fa6'
 
 interface ProductCardProps {
   product: Product
@@ -7,15 +9,33 @@ interface ProductCardProps {
 
 const ProductListCard: React.FC<ProductCardProps> = ({ product }) => {
   const { title, description, price, stock, thumbnail } = product
+  const {addToCart, isInCart, getCartItemQuantity} = useCartContext()
+
+  const handleAddToCart = ()=>{
+    addToCart(product)
+  }
+
+  const inCart = isInCart(product.id)
 
   return (
-    <div className="bg-primary rounded-xl shadow-md overflow-hidden border border-text/20 flex flex-col">
+    <div className="bg-primary rounded-xl shadow-md overflow-hidden border border-text/20 flex flex-col relative">
+      {/* In Cart Badge */}
+      {inCart && (
+        <div className="absolute top-2 left-2 bg-green-500 rounded-md  z-10 shadow-md flex items-center gap-2 p-1">
+          <span className='inline-block text-xs text-text'>
+            In Cart
+          </span>
+          <FaCartShopping
+            className='text-text'
+          />
+        </div>
+      )}
       {/* Product Image */}
       <div className="relative h-48 bg-text/90">
         <img
           src={thumbnail}
           alt={title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
         {(stock < 10 && stock > 0) && (
           <div className="absolute top-2 right-2 bg-yellow-500 text-white tracking-wide shadow-md text-xs px-2 py-1 rounded-md">
@@ -55,8 +75,9 @@ const ProductListCard: React.FC<ProductCardProps> = ({ product }) => {
               : 'bg-gray-300 text-gray-500 cursor-not-allowed'
           }`}
           disabled={stock === 0}
+          onClick={handleAddToCart}
         >
-          {stock > 0 ? 'Add to Cart' : 'Out of Stock'}
+          {stock > 0 ? (inCart ? 'Add More' : 'Add to Cart') : 'Out of Stock'}
         </button>
       </div>
     </div>

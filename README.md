@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Product Listing App
 
-## Getting Started
+A modern e-commerce product listing application built with Next.js 14, TypeScript, and Tailwind CSS. Features product browsing, shopping cart functionality, and persistent cart storage.
 
-First, run the development server:
+## 🚀 Features
 
+- **Product Listing**: Browse products with pagination
+- **Shopping Cart**: Add, remove, and update product quantities
+- **Persistent Storage**: Cart data persists across browser sessions
+- **Stock Management**: Real-time stock validation
+- **Responsive Design**: Works seamlessly on desktop and mobile
+- **TypeScript**: Full type safety throughout the application
+
+## 🛠️ Tech Stack
+
+- **Next.js 14** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **React Context API**
+- **Local Storage** for cart persistence
+
+## 📦 Installation
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Clone the Repository
+```bash
+git clone https://github.com/Deep-dsd/e-commerce.git
+cd e-commerce
+```
+
+### Install Dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+### Run the Development Server
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+/app
+  /products       # Products listing page
+  /cart           # Shopping cart page        
+  layout.tsx      # Root layout with providers
+  page.tsx        # Home page
+  globals.css     # Global styles
 
-## Learn More
+/components
+  /providers      # Context providers wrapper
+  /navbar         # Navigation component
+  /products       # Product-related components
+  /cart           # Cart-related components
+  /ui             # UI components
 
-To learn more about Next.js, take a look at the following resources:
+/context
+  useProductsContext.tsx  # Products data management
+  useCartContext.tsx      # Cart state management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+/lib              # For utility functions
+/models           # For TypeScript Models
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
 
-## Deploy on Vercel
+## 🎯 Key Features Explained
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Product Management
+- Fetches products from DummyJSON API
+- Implements pagination (12 items per page)
+- Shows stock status and low stock warnings
+- Displays product images, descriptions, and prices
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Shopping Cart
+- Add products to cart with quantity management
+- Visual indicators for items already in cart
+- Stock-based quantity limits
+- Persistent cart using localStorage
+- Real-time total calculations
+
+### State Management
+- React Context API for global state
+- Separate contexts for products and cart
+- TypeScript interfaces for type safety
+
+## 🌐 API Integration
+
+Uses [DummyJSON Products API](https://dummyjson.com/products) for product data with:
+- Pagination support
+- Product details (title, description, price, stock, images)
+- Error handling and loading states
+
+## 📱 Responsive Design
+
+- Mobile-first approach with Tailwind CSS
+- Responsive grid layouts
+- Touch-friendly interface elements
+- Optimized for various screen sizes
+
+## 🔍 Browser Compatibility
+
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Requires JavaScript enabled
+- localStorage support for cart persistence
+

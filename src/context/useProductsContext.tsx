@@ -84,9 +84,7 @@ export const ProductsDataprovider:React.FC<{children: ReactNode}> =({children}) 
 
   // Fetching initial data
   useEffect(() => {
-    if(typeof window !== "undefined") {
       fetchProducts(1, 12)
-    }
   }, [])
 
   return (

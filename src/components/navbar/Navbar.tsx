@@ -7,11 +7,15 @@ import DesktopNavigation from './DesktopNavigation';
 import { NavItems } from '@/models/navbar/navbarModels';
 import { useWindowWidth } from '@/lib/useWindowWidth';
 import MobileNavigation from './MobileNavigation';
+import { useCartContext } from '@/context/useCartContext';
 
 const Navbar = () => {
+  const {getTotalItems} = useCartContext()
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
   const windowWidth = useWindowWidth()
+
+  const totalCartItems = getTotalItems()
 
   useEffect(()=>{
     const handleScroll = ()=>{
@@ -50,11 +54,13 @@ const Navbar = () => {
           <DesktopNavigation
             navItems = {navItems}
             pathname = {pathname}
+            totalCartItems = {totalCartItems}
           />
         ) : (
           <MobileNavigation
             navItems = {navItems}
             pathname = {pathname}
+            totalCartItems = {totalCartItems}
           />
         )
       }
