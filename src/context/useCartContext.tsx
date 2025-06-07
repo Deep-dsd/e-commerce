@@ -35,19 +35,18 @@ export const CartProvider: React.FC<{ children: ReactNode}>  = ({children}) => {
         } catch (error) {
           console.error('Error parsing cart from localStorage:', error);
           localStorage.removeItem('cart');
-        } finally{
-          setLoading(false)
         }
       }
+      setLoading(false)
     }
   }, [])
 
   //Updating LocalStorage whenever cartItems changes
   useEffect(()=>{
-    if(typeof window !== "undefined") {
+    if(typeof window !== "undefined" && !loading) {
       localStorage.setItem("cart", JSON.stringify(cartItems))
     }
-  },[cartItems])
+  },[cartItems, loading])
 
   const addToCart = (product: Product) => {
     setCartItems(prevItems => {
