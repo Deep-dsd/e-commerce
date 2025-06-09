@@ -55,7 +55,6 @@ export const ProductsDataprovider:React.FC<{children: ReactNode}> =({children}) 
 
       const data: ApiResponse = await response.json()
       
-      console.log(data)
       setProducts(data.products)
       setTotal(data.total)
       setCurrentPage(page)
