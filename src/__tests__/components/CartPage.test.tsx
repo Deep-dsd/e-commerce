@@ -19,22 +19,29 @@ const renderWithProvider = () => {
 }
 
 describe('CartPage', () => {
-  test('shows empty cart message', () => {
+  test('shows cart title', () => {
     renderWithProvider()
-    
     expect(screen.getByText('Shopping Cart')).toBeInTheDocument()
+  })
+
+  test('shows empty cart message when no items', () => {
+    renderWithProvider()
     expect(screen.getByText('Start Shopping')).toBeInTheDocument()
   })
 
-  test('shows cart title', () => {
+  test('start shopping button redirects to products page', () => {
+    const mockReplace = jest.fn()
+    
+    require('next/navigation').useRouter = jest.fn(() => ({
+      replace: mockReplace,
+      push: jest.fn(),
+    }))
+    
     renderWithProvider()
     
-    expect(screen.getByText('Shopping Cart')).toBeInTheDocument()
-  })
-
-  test('renders without crashing', () => {
-    renderWithProvider()
+    const startShoppingBtn = screen.getByText('Start Shopping')
+    fireEvent.click(startShoppingBtn)
     
-    expect(screen.getByText('Shopping Cart')).toBeInTheDocument()
+    expect(mockReplace).toHaveBeenCalledWith('/products')
   })
 })

@@ -47,6 +47,7 @@ const CartListCard:React.FC<CartListCardProps> = ({product, quantity}) => {
               onClick={() => updateQuantity(product.id, quantity - 1)}
               className="w-8 h-8 bg-text/10 hover:bg-text/20 rounded-md flex items-center justify-center text-text transition-colors cursor-pointer"
               disabled={quantity <= 1}
+              aria-label="Reduce Quantity"
             >
               <FaMinus/>
             </button>
@@ -57,6 +58,7 @@ const CartListCard:React.FC<CartListCardProps> = ({product, quantity}) => {
               onClick={() => updateQuantity(product.id, quantity + 1)}
               className="w-8 h-8 bg-text/10 hover:bg-text/20 rounded-md flex items-center justify-center text-text transition-colors cursor-pointer"
               disabled={quantity >= product.stock}
+              aria-label="Increase Quantity"
             >
               <FaPlus/>
             </button>
